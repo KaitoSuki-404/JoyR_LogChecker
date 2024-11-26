@@ -1,0 +1,99 @@
+window = GUI()
+window.changeTitle('Log Checker')
+window.changeSize(960, 740)
+
+#----------------------------------------------------------------------------
+#Main title for "JoyRender's Log Checker"
+Widget_mainTitle = tk.Label(window.window,
+                            text= "JoyRender's Log Checker",
+                            justify= 'left',
+                            fg= 'Crimson',
+                            font= ("QuanPixel 8px", 25))
+
+#----------------------------------------------------------------------------
+
+#Entry prompt for "insert taskID:"
+Widget_Prompt_TaskID = tk.Label(window.window,
+                                text= "Insert taskID: ",
+                                justify= 'left',
+                                font= ("QuanPixel 8px", 17))
+
+#Entry prompt for "insert log file name(example:\0_001-001):"
+Widget_Prompt_LogFileName = tk.Label(window.window,
+                                     text= r"Insert log file name(EXAMPLE:\0_001-001): ",
+                                     justify='left',
+                                     font=("QuanPixel 8px", 17))
+
+#Entry prompt for "insert job state(Completed, Failed, Suspended): "
+Widget_Prompt_JobState = tk.Label(window.window,
+                                  text= "Select job state: ",
+                                  justify='left',
+                                  font=("QuanPixel 8px", 17))
+
+#Entry prompt for "Select renderer mode"
+Widget_Prompt_RendererMode = tk.Label(window.window,
+                                      text= "Select renderer mode: ",
+                                      justify='left',
+                                      font=("QuanPixel 8px", 17))
+
+#----------------------------------------------------------------------------
+
+#Text box for inserting taskID
+Widget_Entry_TaskID = tk.Entry(window.window,
+                               width= 20,
+                               font= ("QuanPixel 8px", 17))
+
+#Text box for inserting log file name
+Widget_Entry_LogFileName = tk.Entry(window.window,
+                                    width= 20,
+                                    font= ("QuanPixel 8px", 17))
+
+#Combobox for selecting job state
+Widget_Entry_JobState = tkinter.ttk.Combobox(window.window,
+                                             width= 20,
+                                             state= 'readonly',
+                                             font= ("QuanPixel 8px", 17))
+Widget_Entry_JobState['value'] = ('Completed', 'Failed', 'Suspended')
+Widget_Entry_JobState.current(0)
+
+#Radiobutton for selecting renderer
+Widget_Button_Renderer_1 = tk.Radiobutton(window.window,
+                                          text= 'Arnold',
+                                          value= 0,
+                                          font= ("QuanPixel 8px", 15))
+Widget_Button_Renderer_2 = tk.Radiobutton(window.window,
+                                          text= 'Redshift',
+                                          value= 1,
+                                          font= ("QuanPixel 8px", 15))
+
+#Button to execute analysis
+Widget_Button_Execute_1 = tk.Button(window.window,
+                                    text= "Execute analysis",
+                                    justify='left',
+                                    font=("QuanPixel 8px", 17))
+
+#----------------------------------------------------------------------------
+
+Widget_Log_Output = tk.Text(window.window,
+                            width= 120,
+                            height= 39,
+                            font=("QuanPixel 8px", 10))
+
+#----------------------------------------------------------------------------
+
+Widget_mainTitle.place(x= 280, y= 5)
+Widget_Prompt_TaskID.place(x= 0, y= 50)
+Widget_Entry_TaskID.place(x= 180, y= 50)
+Widget_Prompt_LogFileName.place(x= 0, y= 85)
+Widget_Entry_LogFileName.place(x= 520, y= 85)
+Widget_Prompt_JobState.place(x= 0, y= 120)
+Widget_Entry_JobState.place(x= 220, y= 120)
+Widget_Prompt_RendererMode.place(x= 0, y= 155)
+Widget_Button_Renderer_1.place(x= 280, y= 155)
+Widget_Button_Renderer_2.place(x= 380, y= 155)
+Widget_Button_Execute_1.place(x= 0, y= 190)
+Widget_Log_Output.place(x= 0, y= 225)
+
+#----------------------------------------------------------------------------
+
+window.onLoop()

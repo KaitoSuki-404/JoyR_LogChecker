@@ -1,0 +1,4 @@
+0.0.03:
+1.Add dependencies for deadline log read. Now the checker is capable for connecting deadline host for operation.
+2.Refined input prompt
+3.Refined log printing logic. There won't be a mess
